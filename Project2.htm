@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<title>CodeCrunch</title>
+<!-- START NUS Includes-->
+<script type="text/javascript" src="/nus/nussearch.js"></script>
+<link rel="stylesheet" type="text/css" href="/nus/nusbase.css" media="screen, print, projection, handheld" />
+<link rel="stylesheet" type="text/css" href="/nus/nusmenu.css" media="screen, print, projection, handheld" />
+<link rel="stylesheet" type="text/css" href="/nus/nusscreen.css" media="screen, projection, print" />
+<link href="/nus/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" href="/nus/blank.png"/>
+<!-- END NUS Includes -->
+<script type="text/javascript" src="/js/ajax.js"></script>
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tablesorter.pager.js"></script>
+<!--<script type="text/javascript" src="/js/folding.js"></script>-->
+<script type="text/javascript" src="/js/jquery.watermark.min.js"></script>
+<script type="text/javascript">
+            function enterPressButton(field, button) {
+                $(field).keypress(function(e){if(e.which==13)$(button).trigger("click");});
+            }
+</script>
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/css/tablesorter/jquery.tablesorter.css" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<!--<script type="text/javascript" src="js/folding.js"></script>-->
+<script type="text/javascript" src="js/jquery.rating.js"></script>
+<script type="text/javascript" src="js/behaviour.js"></script>
+<script type="text/javascript" src="js/textarea_maxlen.js"></script>
+<script type="text/javascript" src="js/jquery.timer.js"></script>
+
+<script type="text/javascript" src="plupload/js/plupload.full.min.js"></script>
+
+<link rel="stylesheet" href="css/jquery.rating.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/tagcloud.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery-ui-1.7.2.custom.css" type="text/css" />
+
+<link rel="stylesheet" href="plupload/js/jquery_ui_plupload/css/jquery.ui.plupload.css" type="text/css" />
+
+</head>
+
+<body>
+<!-- START NUS-Header -->
+
+<!-- NUS Header -->
+<div id="nusheader" class="nusbody">
+<div class="nuslogodiv">
+<a href="http://www.nus.edu.sg/">
+<img class="nuslogo" src="/nus/soclogo.png" alt="" />
+</a>
+</div>
+<div id="nuspointermenu">
+<ul>
+<li><a href="http://exchange.nus.edu.sg/"><span style="text-transform:none">NUS WebMail</span></a></li>
+<li><a href="https://ivle.nus.edu.sg/lms/default.aspx">ivle</a></li>
+<li><a href="http://www.lib.nus.edu.sg/">library</a></li>
+<li><a href="http://www.nus.edu.sg/campusmap/" >maps</a></li>
+<!--<li><a href="https://aces01.nus.edu.sg/CoE/jsp/coeMain.jsp">calendar</a></li>-->
+<!--<li><a href="/sitemap">sitemap</a></li>-->
+<!--<li><a href="#">a-z index</a></li>-->
+<!--<li><a href="/contact">contact</a></li>-->
+<li><a href="#" id="rightcorner">&nbsp;</a></li>
+</ul>
+<br style="clear: left" />
+</div>
+<div id="searchform">
+<script src="/nus/nussearch.js" type="text/javascript"></script>
+<form id="frmSearch" onsubmit="evalSearch();return false" action=""><div>
+<a href="http://www.nus.edu.sg/search/" style="text-decoration:none; font-size:11px; font-weight:bold; color:#666666">Search </a>
+<input id="txtKeyword" type="text" value="search for..." onfocus="value=''" class="equal" size="18" />
+in
+<select id="SearchMenu" name="SearchMenu">
+<option selected="selected" value="0">NUS Websites</option>
+<option value="1">Internet</option>
+<option value="2">Staff Directory</option>
+<option value="3">Advanced Search</option>
+</select>
+<input class="equal" id="Go" src="/nus/go.png" type="image" />
+</div></form>
+</div>
+</div>
+
+<!-- NUS Local-Navigation --><!--
+<div id="nusmenu" class="nusbody"><div id="nusmenu_l"><div id="nusmenu_r">
+<ul>
+  <li><a href="http://www.comp.nus.edu.sg/index.html">Home</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/about.html">About Us</a></li>
+  <li><a class="drop" href="javascript:;">Departments</a>
+    <ul>
+      <li><a href="http://www.comp.nus.edu.sg/cs" >Computer Science</a></li>
+      <li><a href="http://www.comp.nus.edu.sg/is/" >Information Systems</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.comp.nus.edu.sg/undergraduates" >Undergraduate</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/graduates" >Graduate</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/research" >Research</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/entrepreneurship" >Entrepreneurship</a></li>
+  <li><a href="http://www.stmi.nus.edu.sg" >Executive Education</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/external_relations" >External Relations</a></li>
+</ul>
+</div></div></div>
+-->
+
+<!-- NUS Inner-Title -->
+<div id="nustitle" class="nusbody"><div id="nustitle_l"><div id="nustitle_r">
+              <h1 id="site-name">
+                <a href="/" title="Home" rel="home">CodeCrunch</a>
+              </h1>
+</div></div></div>
+
+<!-- END NUS-Header -->
+
+<div id="banner">
+        <div id="topmenu">
+        <div id="login">
+                Logged in as: <strong>e0415870</strong>
+                </div>
+                <div style="display: block;"><ul>
+                                        <li><a href="index.php" >Home</a></li>
+                                                    <li><a href="course_viewall.php" >Courses</a></li>
+                                                                <li><a href="tutorial_viewall.php" >Tutorials</a></li>
+                                                                <li><a href="task_viewall.php" >Tasks</a></li>
+                                                                <li><a href="tutorial_browser.php" >Browse Tutorials</a></li>
+                                                                <li><a href="user_viewsubmissions.php" >My Submissions</a></li>
+                                                                <li><a href="tools.php
+" >Tools</a></li>
+                                                <li><a href="logout_process.php" >Logout</a></li>
+                            </ul></div>
+        </div>
+</div>
+<div id="container">
+<div id="outer">
+<div id="inner">
+	<div id="content_full">                         
+		<div class="content-header"><h3>CS2030 Project #2: Discrete Event Simulator (Multiple Servers)</h3></div>
+		<div class="spacer"></div>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr><td valign="top" style="width: 30%;">
+				<div class="meta_header">Tags &amp; Categories</div>
+				<div id="classifyList"></div>
+			</td>
+			<td valign="top" style="width: 40%;">
+				<div class="meta_header">Related Tutorials</div>
+				<div id="tutorialList"></div>
+			</td>
+			<td valign="top" style="width: 30%;">
+			</td>
+			</tr>
+		</table>
+		<div class="content-header">
+			<h3>Task Content
+							</h3>
+		</div>                          
+		<div class="panel"><div class="task-content">
+		<h3>CS2030 Project #2: Discrete Event Simulator (Multiple Servers)</h3>
+<!--
+<h4>Requirements</h4>
+<ul>
+<li>OOP Design consideration: continuation with switch-based event dispatching by event type</li>
+<li>Program documentation: adherance to <a href="https://www.comp.nus.edu.sg/~cs2030/javadoc/" mce_href="https://www.comp.nus.edu.sg/~cs2030/javadoc/" target="_blank">CS2030 Javadoc</a></li>
+</ul>
+-->
+<h4>Requirements</h4>
+<ul>
+<li>OOP Principles and Design</li>
+<!--consideration: abstraction and encapsulation
+<li> switch-based event dispatching by event type</li>
+-->
+<li>Use <tt>PriorityQueue</tt> from the Java Collections Framework to store the events <!-- (see   <a href="task_view.php?tid=4045" mce_href="task_view.php?tid=4045"> prelude</a> for details)--></li>
+<li>Program style: adherance to <a href="https://www.comp.nus.edu.sg/~cs2030/style/" target="_blank">CS2030 Java Style Guide</a></li>
+<li>Java documentation: adherence to <a href="https://www.comp.nus.edu.sg/~cs2030/javadoc" target="_blank">CS2030 Javadoc Specification</a></li>
+</ul>
+<h4>Problem Description</h4>
+<p>Let's make some changes to the queuing system in Stage 1 of <!-- the <a href="https://codecrunch.comp.nus.edu.sg/task_view.php?tid=4045" mce_href="https://codecrunch.comp.nus.edu.sg/task_view.php?tid=4045">prelude</a> to -->  this project. Specifically,</p>
+<ul>
+<li>there are now <tt>k &ge; 1</tt> servers, arranged in order from <tt>1</tt> to <tt>k</tt>; </li>
+<li>only one waiting customer is allowed per server; </li>
+<li>when a customer arrives at the shop: <ol>
+<li>he/she scans the servers from <tt>1</tt> to <tt>k</tt>, and approaches the first idle server to be served immediately; </li>
+<li>if there is no idle server, the customer scans the servers from <tt>1</tt> to <tt>k</tt>, and waits at the first busy server without any waiting customer; </li>
+<li>if every server is busy and already has a waiting customer, he/she leaves the shop. </li>
+</ol> </li>
+</ul>
+<p>As a result of this, you might realize that there is a better way to encapsulate the data and the behavior of the various entities in the program.  In which case, you may want to consider re-organizing your solution.</p>
+<p>Keep in mind that there are still five states of the system, namely <tt>ARRIVES</tt>,  <tt>SERVED</tt>, <tt>WAITS</tt> <tt>LEAVES</tt> and <tt>DONE</tt>.  and only one of three possible state transitions for each customer:</p>
+<ul>
+<li> <tt>ARRIVES</tt> &rarr; <tt>SERVED</tt> &rarr; <tt>DONE</tt> </li>
+<li> <tt>ARRIVES</tt> &rarr; <tt>WAITS</tt> &rarr; <tt>SERVED</tt> &rarr; <tt>DONE</tt> </li>
+<li> <tt>ARRIVES</tt> &rarr; <tt>LEAVES</tt> </li>
+</ul>
+<p>Statistics of the system that we need to keep track of are:</p>
+<ol>
+<li>the average waiting time for customers who have been served </li>
+<li>the number of customers served </li>
+<li>the number of customers who left without being served </li>
+</ol>
+<h4>The Task</h4>
+<p>Input now consists of the following (in order of presentation)</p>
+<ul>
+<li>number of servers; </li>
+<li>set of customer arrival times in chronological order </li>
+</ul>
+<p>Output comprises the individual discrete events, and also the statistics at the end of the simulation.</p>
+<p>Take note of the following assumptions:</p>
+<ul>
+<!--
+<li>The maximum number of events is 100 <strong>at any one time</strong>; </li>
+-->
+<li>The format of the input is always correct; </li>
+<li>Output of a <tt>double</tt> value, say <tt>d</tt>, is to be formatted with <tt>String.format("%.3f", d)</tt>; <!--
+<li>Inconsistencies between sample output and actual output involving <tt>-0.000</tt> and <tt>0.000</tt> can be ignored. --> </li>
+</ul>
+<!--
+<p>This task is divided into several levels. Read through all the levels  to see how the different levels are related. <b>You may start from any level.</b>
+<p>In each level, you are to  -->
+<p>As this stage is a continuation from the prelude, this task will be treated as Level 6.  <!-- Your programs for <tt>sim1</tt> to <tt>sim5</tt> in the previous lab has been made available to you. --> Just remember to</p>
+<ul>
+<li>define a <tt>Main</tt> class with the <tt>main</tt> method to handle input and output; </li>
+<!--
+<li>check for output format correctness using the <tt>diff</tt> utility (see specific level for usage details).  Note that only <strong>one</strong> test case is provided for this; </li>
+-->
+<li>check for styling errors by invoking <tt>checkstyle</tt>. For example, to check styling for all java files
+<pre>$ java -jar checkstyle-8.2-all.jar -c cs2030_checks.xml *.java
+</pre>
+<p>A copy of the files for checkstyle is available in LumiNUS -- Files -- Miscellaneous.</p>
+</li>
+<!--
+<li>save a copy of all source files into the appropriate level directory (see specific level for usage details). </li>
+--> 
+</ul>
+<!-- <b> 
+<ul>
+<li>Deadline: Submit your work to CodeCrunch by Thursday, 15 September, 23:59:59. 
+</ul>
+</b> -->                                  
+<table style="width: 800px;" border="1" cellpadding="10">
+<tbody>
+<tr>
+<td>
+<h4>Discrete event simulation with <tt>k</tt> servers</h4>
+<p>You might want to first include the <tt>k</tt> servers, but only work with the first server, so that the output you get is consistent with the single server simulator.</p>
+<p>Thereafter, whenever an event is picked from the queue, process that event by consider all <tt>k</tt> servers and generate the new event.</p>
+<p>The following is a sample run of the program.  User input is <span style="text-decoration: underline;">underlined</span>.   <!-- Ensure that the last line of output is followed by a newline character. --></p>
+<table border="1">
+<tbody>
+<tr>
+<td><tt> <span style="text-decoration: underline;">1</span><br /> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> <span style="text-decoration: underline;">1.500</span><br /> <span style="text-decoration: underline;">1.600</span><br /> <span style="text-decoration: underline;">1.700</span><br /> 0.500 1 arrives<br /> 0.500 1 served by 1<br /> 0.600 2 arrives<br /> 0.600 2 waits to be served by 1<br /> 0.700 3 arrives<br /> 0.700 3 leaves<br /> 1.500 1 done serving by 1<br /> 1.500 2 served by 1<br /> 1.500 4 arrives<br /> 1.500 4 waits to be served by 1<br /> 1.600 5 arrives<br /> 1.600 5 leaves<br /> 1.700 6 arrives<br /> 1.700 6 leaves<br /> 2.500 2 done serving by 1<br /> 2.500 4 served by 1<br /> 3.500 4 done serving by 1<br /> [0.633 3 3]<br /> </tt></td>
+</tr>
+<tr>
+<td><tt> <span style="text-decoration: underline;">2</span><br /> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> <span style="text-decoration: underline;">1.500</span><br /> <span style="text-decoration: underline;">1.600</span><br /> <span style="text-decoration: underline;">1.700</span><br /> 0.500 1 arrives<br /> 0.500 1 served by 1<br /> 0.600 2 arrives<br /> 0.600 2 served by 2<br /> 0.700 3 arrives<br /> 0.700 3 waits to be served by 1<br /> 1.500 1 done serving by 1<br /> 1.500 3 served by 1<br /> 1.500 4 arrives<br /> 1.500 4 waits to be served by 1<br /> 1.600 2 done serving by 2<br /> 1.600 5 arrives<br /> 1.600 5 served by 2<br /> 1.700 6 arrives<br /> 1.700 6 waits to be served by 2<br /> 2.500 3 done serving by 1<br /> 2.500 4 served by 1<br /> 2.600 5 done serving by 2<br /> 2.600 6 served by 2<br /> 3.500 4 done serving by 1<br /> 3.600 6 done serving by 2<br /> [0.450 6 0]<br /> </tt></td>
+</tr>
+</tbody>
+</table>
+<p><!--
+<p>Click <a href="https://codecrunch.comp.nus.edu.sg/task_view.php?tid=4050" mce_href="task_view.php?tid=4050" target="_blank">here</a> to submit to CodeCrunch.</p>
+<p>Check the format correctness of the output by typing the following Unix command</p>
+<pre>$ java Main < test.in | diff - test6.out
+</pre>
+<p>Make a copy of your Java programs to the level directory by typing the Unix commands</p>
+<pre>$ mkdir sim6
+$ cp *.java sim6
+</pre>
+--></p>
+</td>
+</tr>
+</tbody>
+</table>		</div></div>                          
+									<input type="hidden" id="tid" name="tid" value="4051" />
+		</div>
+		<!-- end content -->
+</div>
+<!-- end inner -->
+<div id="loading-mask">
+        <p id="loading_mask_loader" class="loader"> <img alt="Loading..." src="images/ajax-loader-tr.gif" /> <br/>
+                Please wait... </p>
+</div>
+<script type="text/javascript">
+$(".star").rating({
+        focus: function(value, link) {
+                var tip = $("#rating_text");
+                tip[0].data = tip[0].data || tip.html(); 
+                tip.html(link.title || "value: " + value);
+        },
+        blur: function(value, link) {
+                var tip = $("#rating_text");
+                $("#rating_text").html(tip[0].data || "");
+        },
+        callback: function(value, link) {
+                $.ajax({
+                        type: "POST",
+                        url: "task_updaterating.php",
+                        data: ({tid:$("#tid").val(), rating:value}),
+                        success: function(html) {
+                                var msg = html.split(";");
+                                $("#rating_text").removeClass().addClass(msg[0]);
+                                $("#rating_text").html(msg[1]);
+                        }
+                });
+        }
+});
+
+function getComments() {
+        $.ajax({
+                type: "POST",
+                url: "task_getcomments.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#commentList").html(html);
+                }
+        });
+}
+
+function doTaskGrade(e, d) {
+        $.ajax({
+                type: "POST",
+                url: "doTaskGrade.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#practiceNotification").removeClass().addClass(msg[0]);
+                        $("#practiceNotification").html(msg[1]);
+                }
+        });
+
+}
+
+function doCourseTaskGrade(e, d) {
+        $.ajax({
+                type: "POST",
+                url: "doTaskGrade.php",
+                data: ({tid:$("#tid").val(), course_id:$("#course_id").val(), do_course:1}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#courseNotification").removeClass().addClass(msg[0]);
+                        $("#courseNotification").html(msg[1]);
+                }
+        });
+
+}
+
+function addComment() {
+        $.ajax({
+                type: "POST",
+                url: "task_addcomment.php",
+                data: ({tid:$("#tid").val(), comment:encodeURIComponent($("#comment").val())}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#commentNotification").removeClass().addClass(msg[0]);
+                        $("#commentNotification").html(msg[1]);
+                        
+                        getComments();
+                }
+        });
+}
+
+function deleteComment(c) {
+        $.ajax({
+                type: "POST",
+                url: "task_deletecomment.php",
+                data: ({comment_id:c}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#commentNotification").removeClass().addClass(msg[0]);
+                        $("#commentNotification").html(msg[1]);
+                        
+                        getComments();
+                }
+        });
+}
+
+function getClassify(){
+                $.ajax({
+                type: "GET",
+                url: "task_classify.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#classifyList").html(html);
+                }
+        });
+}
+
+function getTutorial(){
+        $.ajax({
+                type: "POST",
+                url: "task_gettutorials.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#tutorialList").html(html);
+                }
+        });
+}
+
+function getQueries() {
+        $.ajax({
+                type: "POST",
+                url: "task_getqueries.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#queryList").html(html);
+                }
+        });
+}
+
+function addQuery() {
+        $.ajax({
+                type: "POST",
+                url: "task_addquery.php",
+                data: ({tid:$("#tid").val(), contest_id:$("#contest_id").val(), query:encodeURIComponent($("#query").val())}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#queryNotification").removeClass().addClass(msg[0]);
+                        $("#queryNotification").html(msg[1]);
+                        
+                        getQueries();
+                }
+        });
+}
+
+function deleteQuery(q) {
+        $.ajax({
+                type: "POST",
+                url: "task_deletequery.php",
+                data: ({query_id:q}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#queryNotification").removeClass().addClass(msg[0]);
+                        $("#queryNotification").html(msg[1]);
+                        
+                        getQueries();
+                }
+        });
+}
+
+function addTag() {
+        $.ajax({
+                type: "POST",
+                url: "tag_add.php",
+                data: ({tid:$("#tid").val(), tags:$("#tagwords").val()}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#tagNotification").removeClass().addClass(msg[0]);
+                        $("#tagNotification").html(msg[1]);
+                        
+                        getClassify();
+                }
+        });
+}
+
+
+$(document).ready(function() {
+        getComments();
+        getQueries();
+        getClassify();
+        getTutorial();
+        //getCloud();
+});
+
+$(document).everyTime(60000, function(i) {
+        if ($("#tid").val() != "" && $("#tid").val() != null) {
+                $.ajax({
+                        type: "POST",
+                        url: "task_checkcontest.php",
+                        data: ({tid:$("#tid").val()}),
+                        success: function(html) {
+                                if (html == "0") {
+                                        $("#contest_submit").html("");
+                                }
+                        }
+                });
+                $.ajax({
+                        type: "POST",
+                        url: "task_checkcourse.php",
+                        data: ({tid:$("#tid").val()}),
+                        success: function(html) {
+                                if (html == "0") {
+                                        $("#course_submit").html("");
+                                }
+                        }
+                });
+        }
+}, 0);
+
+$('#loading_mask_loader')
+        .hide()  // hide it initially
+        .ajaxStart(function() {
+                $(this).show();
+        })
+        .ajaxStop(function() {
+                $(this).hide();
+        });
+        
+</script>
+</body>
+</html>
+</div> <!-- end outer -->
+
+</div> <!-- end container -->
+
+<!-- START NUS-Footer --> 
+<div id="nusfooter" class="nusbody">
+<div id="nusfooter_ml"><div id="nusfooter_mr">
+<div id="nusfooter_tc"><div id="nusfooter_tl"><div id="nusfooter_tr">
+<div id="nusfooter_bc"><div id="nusfooter_bl"><div id="nusfooter_br">
+<div class="inner"><div class="left"><p>&copy; Copyright 2009-2020 National University of Singapore. All Rights Reserved.</p>  
+<p class="nusfooterlinks">
+<a href="http://www.nus.edu.sg/terms.php">Terms of Use</a> |
+<a href="http://www.nus.edu.sg/policy.php">Privacy</a> |
+<a href="http://www.nus.edu.sg/nondiscrim.php">Non-discrimination</a></p> 
+</div>    
+<div class="right">
+<a href="https://mysoc.nus.edu.sg/">MySoC</a> |
+<a href="https://docs.comp.nus.edu.sg/cf/">Computing Facilities</a> |
+<a href="http://www.nus.edu.sg/search/">Search</a> |
+<a href="http://www.nus.edu.sg/campusmap/">Campus Map</a>
+<p>School of Computing, National University of Singapore</p>
+</div>    
+<div style="clear: both;"> </div>
+</div>
+</div></div></div>
+</div></div></div>
+</div></div>
+</div>
+<!-- END NUS-Footer --></body>
+</html>

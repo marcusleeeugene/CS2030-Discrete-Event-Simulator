@@ -1,0 +1,725 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<title>CodeCrunch</title>
+<!-- START NUS Includes-->
+<script type="text/javascript" src="/nus/nussearch.js"></script>
+<link rel="stylesheet" type="text/css" href="/nus/nusbase.css" media="screen, print, projection, handheld" />
+<link rel="stylesheet" type="text/css" href="/nus/nusmenu.css" media="screen, print, projection, handheld" />
+<link rel="stylesheet" type="text/css" href="/nus/nusscreen.css" media="screen, projection, print" />
+<link href="/nus/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" href="/nus/blank.png"/>
+<!-- END NUS Includes -->
+<script type="text/javascript" src="/js/ajax.js"></script>
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tablesorter.pager.js"></script>
+<!--<script type="text/javascript" src="/js/folding.js"></script>-->
+<script type="text/javascript" src="/js/jquery.watermark.min.js"></script>
+<script type="text/javascript">
+            function enterPressButton(field, button) {
+                $(field).keypress(function(e){if(e.which==13)$(button).trigger("click");});
+            }
+</script>
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/css/tablesorter/jquery.tablesorter.css" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<!--<script type="text/javascript" src="js/folding.js"></script>-->
+<script type="text/javascript" src="js/jquery.rating.js"></script>
+<script type="text/javascript" src="js/behaviour.js"></script>
+<script type="text/javascript" src="js/textarea_maxlen.js"></script>
+<script type="text/javascript" src="js/jquery.timer.js"></script>
+
+<script type="text/javascript" src="plupload/js/plupload.full.min.js"></script>
+
+<link rel="stylesheet" href="css/jquery.rating.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/tagcloud.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery-ui-1.7.2.custom.css" type="text/css" />
+
+<link rel="stylesheet" href="plupload/js/jquery_ui_plupload/css/jquery.ui.plupload.css" type="text/css" />
+
+</head>
+
+<body>
+<!-- START NUS-Header -->
+
+<!-- NUS Header -->
+<div id="nusheader" class="nusbody">
+<div class="nuslogodiv">
+<a href="http://www.nus.edu.sg/">
+<img class="nuslogo" src="/nus/soclogo.png" alt="" />
+</a>
+</div>
+<div id="nuspointermenu">
+<ul>
+<li><a href="http://exchange.nus.edu.sg/"><span style="text-transform:none">NUS WebMail</span></a></li>
+<li><a href="https://ivle.nus.edu.sg/lms/default.aspx">ivle</a></li>
+<li><a href="http://www.lib.nus.edu.sg/">library</a></li>
+<li><a href="http://www.nus.edu.sg/campusmap/" >maps</a></li>
+<!--<li><a href="https://aces01.nus.edu.sg/CoE/jsp/coeMain.jsp">calendar</a></li>-->
+<!--<li><a href="/sitemap">sitemap</a></li>-->
+<!--<li><a href="#">a-z index</a></li>-->
+<!--<li><a href="/contact">contact</a></li>-->
+<li><a href="#" id="rightcorner">&nbsp;</a></li>
+</ul>
+<br style="clear: left" />
+</div>
+<div id="searchform">
+<script src="/nus/nussearch.js" type="text/javascript"></script>
+<form id="frmSearch" onsubmit="evalSearch();return false" action=""><div>
+<a href="http://www.nus.edu.sg/search/" style="text-decoration:none; font-size:11px; font-weight:bold; color:#666666">Search </a>
+<input id="txtKeyword" type="text" value="search for..." onfocus="value=''" class="equal" size="18" />
+in
+<select id="SearchMenu" name="SearchMenu">
+<option selected="selected" value="0">NUS Websites</option>
+<option value="1">Internet</option>
+<option value="2">Staff Directory</option>
+<option value="3">Advanced Search</option>
+</select>
+<input class="equal" id="Go" src="/nus/go.png" type="image" />
+</div></form>
+</div>
+</div>
+
+<!-- NUS Local-Navigation --><!--
+<div id="nusmenu" class="nusbody"><div id="nusmenu_l"><div id="nusmenu_r">
+<ul>
+  <li><a href="http://www.comp.nus.edu.sg/index.html">Home</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/about.html">About Us</a></li>
+  <li><a class="drop" href="javascript:;">Departments</a>
+    <ul>
+      <li><a href="http://www.comp.nus.edu.sg/cs" >Computer Science</a></li>
+      <li><a href="http://www.comp.nus.edu.sg/is/" >Information Systems</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.comp.nus.edu.sg/undergraduates" >Undergraduate</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/graduates" >Graduate</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/research" >Research</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/entrepreneurship" >Entrepreneurship</a></li>
+  <li><a href="http://www.stmi.nus.edu.sg" >Executive Education</a></li>
+  <li><a href="http://www.comp.nus.edu.sg/external_relations" >External Relations</a></li>
+</ul>
+</div></div></div>
+-->
+
+<!-- NUS Inner-Title -->
+<div id="nustitle" class="nusbody"><div id="nustitle_l"><div id="nustitle_r">
+              <h1 id="site-name">
+                <a href="/" title="Home" rel="home">CodeCrunch</a>
+              </h1>
+</div></div></div>
+
+<!-- END NUS-Header -->
+
+<div id="banner">
+        <div id="topmenu">
+        <div id="login">
+                Logged in as: <strong>e0415870</strong>
+                </div>
+                <div style="display: block;"><ul>
+                                        <li><a href="index.php" >Home</a></li>
+                                                    <li><a href="course_viewall.php" >Courses</a></li>
+                                                                <li><a href="tutorial_viewall.php" >Tutorials</a></li>
+                                                                <li><a href="task_viewall.php" >Tasks</a></li>
+                                                                <li><a href="tutorial_browser.php" >Browse Tutorials</a></li>
+                                                                <li><a href="user_viewsubmissions.php" >My Submissions</a></li>
+                                                                <li><a href="tools.php
+" >Tools</a></li>
+                                                <li><a href="logout_process.php" >Logout</a></li>
+                            </ul></div>
+        </div>
+</div>
+<div id="container">
+<div id="outer">
+<div id="inner">
+	<div id="content_full">                         
+		<div class="content-header"><h3>CS2030 Project #1: Discrete Event Simulator</h3></div>
+		<div class="spacer"></div>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr><td valign="top" style="width: 30%;">
+				<div class="meta_header">Tags &amp; Categories</div>
+				<div id="classifyList"></div>
+			</td>
+			<td valign="top" style="width: 40%;">
+				<div class="meta_header">Related Tutorials</div>
+				<div id="tutorialList"></div>
+			</td>
+			<td valign="top" style="width: 30%;">
+			</td>
+			</tr>
+		</table>
+		<div class="content-header">
+			<h3>Task Content
+							</h3>
+		</div>                          
+		<div class="panel"><div class="task-content">
+		<h3>CS2030 Project #1: Discrete Event Simulator</h3>
+<!--
+<h4>Topic Coverage</h4>
+<ul>
+<li>Basic Java syntax and semantics </li>
+<li>Object-oriented principles: abstraction and encapsulation</li>
+</ul>
+-->
+<h4>Requirements</h4>
+<ul>
+<li>OOP Principles and Design</li>
+<!--consideration: abstraction and encapsulation
+<li> switch-based event dispatching by event type</li>
+-->
+<li>Use <tt>PriorityQueue</tt> from the Java Collections Framework to store the events; </li>
+<li>Program style: adherance to <a href="https://www.comp.nus.edu.sg/~cs2030/style/" target="_blank">CS2030 Java Style Guide</a></li>
+<li>Java documentation: adherence to <a href="https://www.comp.nus.edu.sg/~cs2030/javadoc" target="_blank">CS2030 Javadoc Specification</a></li>
+</ul>
+<h4>Problem Description</h4>
+<p>A discrete event simulator is a software that simulates a system  with events and states, and can be used to study many complex real-world systems.  An event occurs at a particular time, and each event alters the states of the system and may generate more events.  States remain unchanged between two events (hence the term <strong>discrete</strong>), and this allows the simulator to jump from the time of one event to another. A simulator typically also keeps track of some statistics to measure the performance of the system.</p>
+<p>We shall simulate a queuing system comprising a single customer queue and single service point as shown below.</p>
+<div><img src="data:image/png;base64,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" alt="Embedded Image" /></div>
+<p>The system comprises the following:</p>
+<ul>
+<li>There is one <strong>server</strong> (a person providing service to the customer); the server can serve one customer at a time. </li>
+<li>The <strong>service time</strong> (time take to serve a customer) is constant. </li>
+<li>When a <strong>customer</strong> arrives (<tt><strong>ARRIVES</strong></tt>):                                    
+<ul>
+<li>if the server is idle (not serving any customer), then the server starts serving the customer immediately (<tt><strong>SERVED</strong></tt>) </li>
+<li>if the server is serving another customer, then the customer that just arrives waits (<tt><strong>WAITS</strong></tt>). </li>
+<li>if the server is serving one customer, and another customer is waiting, then the customer that just arrives simply leaves (<tt><strong>LEAVES</strong></tt>); in other words, there is at most one waiting customer. </li>
+<li>When the server is done serving a customer (<tt><strong>DONE</strong></tt>), the served customer leaves. </li>
+</ul>
+</li>
+<li>If there is another customer waiting, the server starts serving the waiting customer immediately. </li>
+<li>If there is no waiting customer, then server becomes idle again. </li>
+</ul>
+<p>There are five states of the system, namely <tt>ARRIVES</tt>,  <tt>SERVED</tt>, <tt>WAITS</tt>, <tt>LEAVES</tt> and <tt>DONE</tt>. Clearly, there is only one of three possible state transitions for each customer:</p>
+<ul>
+<li> <tt>ARRIVES</tt> &rarr; <tt>SERVED</tt> &rarr; <tt>DONE</tt> </li>
+<li> <tt>ARRIVES</tt> &rarr; <tt>WAITS</tt> &rarr; <tt>SERVED</tt> &rarr; <tt>DONE</tt> </li>
+<li> <tt>ARRIVES</tt> &rarr; <tt>LEAVES</tt> </li>
+</ul>
+<p>Statistics of the system that we need to keep track of are:</p>
+<ol>
+<li>the average waiting time for customers who have been served </li>
+<li>the number of customers served </li>
+<li>the number of customers who left without being served </li>
+</ol>
+<p>As an example, given the arrival times of three customers and assuming a service time of <tt>1.0</tt></p>
+<pre>0.500
+0.600
+0.700
+</pre>
+<p>the following states, each of the form  <tt></tt>, are produced</p>
+<pre>0.500 1 arrives
+0.500 1 served
+0.600 2 arrives
+0.600 2 waits
+0.700 3 arrives
+0.700 3 leaves
+1.500 1 done
+1.500 2 served
+2.500 2 done
+</pre>
+<p>with the statistics being respectively, <tt>[0.450 2 1]</tt>.</p>
+<h4>Priority Queuing</h4>
+<p>The <tt>PriorityQueue</tt> class can be used to keep a collection of elements, where each element is given a certain priority.</p>
+<ul>
+<li>Elements can be added with the <tt>add(E e)</tt> method; </li>
+<li>The <tt>poll()</tt> method can be used to retrieve and remove the element with the highest priority; it returns an object of type <tt>E</tt>, or <tt>null</tt> if the queue is empty. </li>
+</ul>
+<p>To enable <tt>PriorityQueue</tt> to order events, instantiate a <tt>PriorityQueue</tt> object using the constructor that takes in a <em>Comparator</em> object. <em>For more details, refer to the Java API Specifications.</em> <!--  If you design is right, you should only change the code in four places: (i) initialize list of events, (ii) schedule an event, (iii) get the next event, (iv) checking if there is still an event.  (Hint: You should be able to implement a Comparator without getter getTime()) --></p>
+<h4>The Task</h4>
+<p>Given a set of customer arrival times in chronological order, output the discrete events. Also output the statistics at the end of the simulation.</p>
+<p>Take note of the following assumptions:</p>
+<ul>
+<!--
+<li>The maximum number of events is 100 <strong>at any one time</strong>; </li>
+-->
+<li>The format of the input is always correct; </li>
+<li>Output of a <tt>double</tt> value, say <tt>d</tt>, is to be formatted with <tt>String.format("%.3f", d)</tt>; <!--
+<li>Inconsistencies between sample output and actual output involving <tt>-0.000</tt> and <tt>0.000</tt> can be ignored. --> </li>
+</ul>
+<p>This task is divided into several levels. Read through all the levels  <!-- (from first to last, then from last to first) --> to see how the different levels are related. <strong>You may start from any level.</strong></p>
+<p>In each level, you are to</p>
+<ul>
+<li>define a <tt>Main</tt> class with the <tt>main</tt> method to handle input and output; </li>
+<!--
+<li>check for output format correctness using the <tt>diff</tt> utility (see specific level for usage details).  Note that only <strong>one</strong> test case is provided for this; </li>
+-->
+<li>check for styling errors by invoking <tt>checkstyle</tt>. For example, to check styling for all java files
+<pre>$ java -jar checkstyle-8.2-all.jar -c cs2030_checks.xml *.java
+</pre>
+</li>
+A copy of the files for checkstyle is available in LumiNUS -- Files -- Miscellaneous. <!--
+<li>save a copy of all source files into the appropriate level directory (see specific level for usage details). </li>
+--> 
+</ul>
+<!-- <b> 
+<ul>
+<li>Deadline: Submit your work to CodeCrunch by Thursday, 15 September, 23:59:59. 
+</ul>
+</b> -->             
+<table style="width: 800px;" border="1" cellpadding="10">
+<tbody>
+<tr>
+<td>
+<h4>Level 1</h4>
+<p><big><strong>Customer arrivals</strong></big></p>
+<p>Each arriving customer should be tagged with a customer ID (starting from <tt>1</tt>) as well as an arrival time. We need to also keep track of the number of customers arriving.</p>
+<p>Note that input is simply a list of arrival times without any prior indication of the number of arrivals.  Check out the Java API on what other <tt>Scanner</tt> methods you can use to achieve this.</p>
+<p>The following is a sample run of the program.  User input is <span style="text-decoration: underline;">underlined</span>.   <!-- Ensure that the last line of output is followed by a newline character. --></p>
+<table border="1">
+<tbody>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> 1 arrives at 0.500<br /> 2 arrives at 0.600<br /> 3 arrives at 0.700<br /> Number of customers: 3<br /> </tt></td>
+</tr>
+</tbody>
+</table>
+<p>Click <a href="task_view.php?tid=4046" target="_blank">here</a> to submit to CodeCrunch.</p>
+<!--
+<p>Check the format correctness of the output by typing the following Unix command</p>
+<pre>$ java Main < test.in | diff - test1.out
+</pre>
+<p>Make a copy of your Java programs to the level directory by typing the Unix commands</p>
+<pre>$ mkdir sim1
+$ cp *.java sim1
+</pre>
+<!  To proceed to the next level (say level 2), copy your program by typing the Unix command
+<pre>
+cp valley1.c valley2.c
+</pre>
+--></td>
+</tr>
+</tbody>
+</table>
+<table style="width: 800px;" border="1" cellpadding="10">
+<tbody>
+<tr>
+<td>
+<h4>Level 2</h4>
+<p><big><strong>Serving the Customer</strong></big></p>
+<p>A customer that arrives is served immediately, but only if the server is not currently serving; otherwise, the customer leaves.&nbsp;</p>
+<ul>
+</ul>
+<p>The following is a sample run of the program.  User input is <span style="text-decoration: underline;">underlined</span>.   <!-- Ensure that the last line of output is followed by a newline character. --></p>
+<table border="1">
+<tbody>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> 1 arrives at 0.500<br /> Customer served; next service @ 1.500<br /> 2 arrives at 0.600<br /> Customer leaves<br /> 3 arrives at 0.700<br /> Customer leaves<br /> Number of customers: 3<br /> </tt></td>
+</tr>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> <span style="text-decoration: underline;">1.500</span><br /> <span style="text-decoration: underline;">1.600</span><br /> <span style="text-decoration: underline;">1.700</span><br /> 1 arrives at 0.500<br /> Customer served; next service @ 1.500<br /> 2 arrives at 0.600<br /> Customer leaves<br /> 3 arrives at 0.700<br /> Customer leaves<br /> 4 arrives at 1.500<br /> Customer served; next service @ 2.500<br /> 5 arrives at 1.600<br /> Customer leaves<br /> 6 arrives at 1.700<br /> Customer leaves<br /> Number of customers: 6<br /> </tt></td>
+</tr>
+</tbody>
+</table>
+<p>Click <a href="task_view.php?tid=4047" target="_blank">here</a> to submit to CodeCrunch.</p>
+<!--
+<p>Check the format correctness of the output by typing the following Unix command</p>
+<pre>$ java Main < test.in | diff - test2.out
+</pre>
+<p>Make a copy of your Java programs to the level directory by typing the Unix commands</p>
+<pre>$ mkdir sim2
+$ cp *.java sim2
+</pre>
+</td>
+</tr>
+--></td>
+</tr>
+</tbody>
+</table>
+<table style="width: 800px;" border="1" cellpadding="10">
+<tbody>
+<tr>
+<td>
+<h4>Level 3</h4>
+<p><big><strong>Incorporating States</strong></big></p>
+<p>In this level, we take into consideration customer arrivals, customers being served and customers leaving.</p>
+<p>For example, the following arrivals</p>
+<pre>0.500
+0.600
+0.700
+</pre>
+will generate the following output:
+<pre>0.500 1 arrives
+0.500 1 served
+0.600 2 arrives
+0.600 2 leaves
+0.700 3 arrives
+0.700 3 leaves
+</pre>
+<p>A suggestion is to define the following constants (or use an Enumeration):</p>
+<pre>public static final int ARRIVES = 1;
+public static final int SERVED = 2;
+public static final int LEAVES = 3;
+</pre>
+<p>The following is a sample run of the program.  User input is <span style="text-decoration: underline;">underlined</span>.</p>
+<table border="1">
+<tbody>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> 0.500 1 arrives<br /> 0.500 1 served<br /> 0.600 2 arrives<br /> 0.600 2 leaves<br /> 0.700 3 arrives<br /> 0.700 3 leaves<br /> Number of customers: 3<br /> </tt></td>
+</tr>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> <span style="text-decoration: underline;">1.500</span><br /> <span style="text-decoration: underline;">1.600</span><br /> <span style="text-decoration: underline;">1.700</span><br /> 0.500 1 arrives<br /> 0.500 1 served<br /> 0.600 2 arrives<br /> 0.600 2 leaves<br /> 0.700 3 arrives<br /> 0.700 3 leaves<br /> 1.500 4 arrives<br /> 1.500 4 served<br /> 1.600 5 arrives<br /> 1.600 5 leaves<br /> 1.700 6 arrives<br /> 1.700 6 leaves<br /> Number of customers: 6<br /> </tt></td>
+</tr>
+</tbody>
+</table>
+<p>Click <a href="task_view.php?tid=4048" target="_blank">here</a> to submit to CodeCrunch.</p>
+<!--
+<p>Check the format correctness of the output by typing the following Unix command</p>
+<pre>$ java Main < test.in | diff - test3.out
+</pre>
+<p>Make a copy of your Java programs to the level directory by typing the Unix commands</p>
+<pre>$ mkdir sim3
+$ cp *.java sim3
+</pre>
+</td>
+</tr>
+--></td>
+</tr>
+</tbody>
+</table>
+<table style="width: 800px;" border="1" cellpadding="10">
+<tbody>
+<tr>
+<td>
+<h4>Level 4</h4>
+<p><big><strong>Scheduling Events</strong></big></p>
+<p>As an example, suppose three arrival events are initially scheduled.</p>
+<pre># Adding arrivals
+0.500 1 arrives
+0.600 2 arrives
+0.700 3 arrives
+</pre>
+The next event to pick is <tt>&lt;0.500 1 arrives&gt;</tt>.  This schedules a serve event.
+<pre># Get next event: 0.500 1 arrives
+0.500 1 served
+0.600 2 arrives
+0.700 3 arrives
+</pre>
+The next event to pick is <tt>&lt;0.500 1 served&gt;</tt>.  This schedules a done event.
+<pre># Get next event: 0.500 1 served
+0.600 2 arrives
+0.700 3 arrives
+1.500 1 done
+</pre>
+<p>The process is repeated until there are no more events.</p>
+<p>The following is a sample run of the program.  User input is <span style="text-decoration: underline;">underlined</span>.   Note that during each iteration of the simulation, there is <strong>no need</strong> to maintain any order on the list of scheduled events, as long as they appear (the final level does not have this output requirement anyway). CodeCrunch will order the events as part of program testing.</p>
+<p><strong>What is important is that the correct event is picked during each iteration. Specifically, pick the earliest occurring one, and if there is a tie, pick the one with the smallest customer ID.</strong> <!-- Ensure that the last line of output is followed by a newline character. --></p>
+<table border="1">
+<tbody>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> # Adding arrivals<br /> 0.500 1 arrives<br /> 0.600 2 arrives<br /> 0.700 3 arrives<br /> <br /> # Get next event: 0.500 1 arrives<br /> 0.500 1 served<br /> 0.600 2 arrives<br /> 0.700 3 arrives<br /> <br /> # Get next event: 0.500 1 served<br /> 0.600 2 arrives<br /> 0.700 3 arrives<br /> 1.500 1 done<br /> <br /> # Get next event: 0.600 2 arrives<br /> 0.600 2 leaves<br /> 0.700 3 arrives<br /> 1.500 1 done<br /> <br /> # Get next event: 0.600 2 leaves<br /> 0.700 3 arrives<br /> 1.500 1 done<br /> <br /> # Get next event: 0.700 3 arrives<br /> 0.700 3 leaves<br /> 1.500 1 done<br /> <br /> # Get next event: 0.700 3 leaves<br /> 1.500 1 done<br /> <br /> # Get next event: 1.500 1 done<br /> <br /> Number of customers: 3<br /> </tt></td>
+</tr>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> <span style="text-decoration: underline;">1.500</span><br /> <span style="text-decoration: underline;">1.600</span><br /> <span style="text-decoration: underline;">1.700</span><br /> # Adding arrivals<br /> 0.500 1 arrives<br /> 0.600 2 arrives<br /> 0.700 3 arrives<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 0.500 1 arrives<br /> 0.500 1 served<br /> 0.600 2 arrives<br /> 0.700 3 arrives<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 0.500 1 served<br /> 0.600 2 arrives<br /> 0.700 3 arrives<br /> 1.500 1 done<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 0.600 2 arrives<br /> 0.600 2 leaves<br /> 0.700 3 arrives<br /> 1.500 1 done<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 0.600 2 leaves<br /> 0.700 3 arrives<br /> 1.500 1 done<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 0.700 3 arrives<br /> 0.700 3 leaves<br /> 1.500 1 done<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 0.700 3 leaves<br /> 1.500 1 done<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 1.500 1 done<br /> 1.500 4 arrives<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 1.500 4 arrives<br /> 1.500 4 served<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> <br /> # Get next event: 1.500 4 served<br /> 1.600 5 arrives<br /> 1.700 6 arrives<br /> 2.500 4 done<br /> <br /> # Get next event: 1.600 5 arrives<br /> 1.600 5 leaves<br /> 1.700 6 arrives<br /> 2.500 4 done<br /> <br /> # Get next event: 1.600 5 leaves<br /> 1.700 6 arrives<br /> 2.500 4 done<br /> <br /> # Get next event: 1.700 6 arrives<br /> 1.700 6 leaves<br /> 2.500 4 done<br /> <br /> # Get next event: 1.700 6 leaves<br /> 2.500 4 done<br /> <br /> # Get next event: 2.500 4 done<br /> <br /> Number of customers: 6<br /> </tt></td>
+</tr>
+</tbody>
+</table>
+<p>Click <a href="task_view.php?tid=4049" target="_blank">here</a> to submit to CodeCrunch.</p>
+<!--
+<p>Check the format correctness of the output by typing the following Unix command</p>
+<pre>$ java Main < test.in | diff - test4.out
+</pre>
+<p>Make a copy of your Java programs to the level directory by typing the Unix commands</p>
+<pre>$ mkdir sim4
+$ cp *.java sim4
+</pre>
+</td>
+</tr>
+--></td>
+</tr>
+</tbody>
+</table>
+<table style="width: 800px;" border="1" cellpadding="10">
+<tbody>
+<tr>
+<td>
+<h4>Level 5</h4>
+<p><big><strong> Discrete event simulation </strong></big></p>
+<p>To complete the discrete event simulator, you will now need to consider that an arriving customer can either be served, wait to be served or leaves.</p>
+<p>You will also need to compute the statistics (see problem description above) at the end of the simulation.</p>
+<p>The following is a sample run of the program.  User input is <span style="text-decoration: underline;">underlined</span>.</p>
+<table border="1">
+<tbody>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> 0.500 1 arrives<br /> 0.500 1 served<br /> 0.600 2 arrives<br /> 0.600 2 waits<br /> 0.700 3 arrives<br /> 0.700 3 leaves<br /> 1.500 1 done<br /> 1.500 2 served<br /> 2.500 2 done<br /> [0.450 2 1]<br /> </tt></td>
+</tr>
+<tr>
+<td><tt> <span style="text-decoration: underline;">0.500</span><br /> <span style="text-decoration: underline;">0.600</span><br /> <span style="text-decoration: underline;">0.700</span><br /> <span style="text-decoration: underline;">1.500</span><br /> <span style="text-decoration: underline;">1.600</span><br /> <span style="text-decoration: underline;">1.700</span><br /> 0.500 1 arrives<br /> 0.500 1 served<br /> 0.600 2 arrives<br /> 0.600 2 waits<br /> 0.700 3 arrives<br /> 0.700 3 leaves<br /> 1.500 1 done<br /> 1.500 2 served<br /> 1.500 4 arrives<br /> 1.500 4 waits<br /> 1.600 5 arrives<br /> 1.600 5 leaves<br /> 1.700 6 arrives<br /> 1.700 6 leaves<br /> 2.500 2 done<br /> 2.500 4 served<br /> 3.500 4 done<br /> [0.633 3 3]<br /> </tt></td>
+</tr>
+</tbody>
+</table>
+<p>Click <a href="task_view.php?tid=4050" target="_blank">here</a> to submit to CodeCrunch.</p>
+<!--
+<p>Check the format correctness of the output by typing the following Unix command</p>
+<pre>$ java Main < test.in | diff - test5.out
+</pre>
+<p>Make a copy of your Java programs to the level directory by typing the Unix commands</p>
+<pre>$ mkdir sim5
+$ cp *.java sim5
+</pre>
+</td>
+</tr>
+--></td>
+</tr>
+</tbody>
+</table>		</div></div>                          
+									<input type="hidden" id="tid" name="tid" value="4045" />
+		</div>
+		<!-- end content -->
+</div>
+<!-- end inner -->
+<div id="loading-mask">
+        <p id="loading_mask_loader" class="loader"> <img alt="Loading..." src="images/ajax-loader-tr.gif" /> <br/>
+                Please wait... </p>
+</div>
+<script type="text/javascript">
+$(".star").rating({
+        focus: function(value, link) {
+                var tip = $("#rating_text");
+                tip[0].data = tip[0].data || tip.html(); 
+                tip.html(link.title || "value: " + value);
+        },
+        blur: function(value, link) {
+                var tip = $("#rating_text");
+                $("#rating_text").html(tip[0].data || "");
+        },
+        callback: function(value, link) {
+                $.ajax({
+                        type: "POST",
+                        url: "task_updaterating.php",
+                        data: ({tid:$("#tid").val(), rating:value}),
+                        success: function(html) {
+                                var msg = html.split(";");
+                                $("#rating_text").removeClass().addClass(msg[0]);
+                                $("#rating_text").html(msg[1]);
+                        }
+                });
+        }
+});
+
+function getComments() {
+        $.ajax({
+                type: "POST",
+                url: "task_getcomments.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#commentList").html(html);
+                }
+        });
+}
+
+function doTaskGrade(e, d) {
+        $.ajax({
+                type: "POST",
+                url: "doTaskGrade.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#practiceNotification").removeClass().addClass(msg[0]);
+                        $("#practiceNotification").html(msg[1]);
+                }
+        });
+
+}
+
+function doCourseTaskGrade(e, d) {
+        $.ajax({
+                type: "POST",
+                url: "doTaskGrade.php",
+                data: ({tid:$("#tid").val(), course_id:$("#course_id").val(), do_course:1}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#courseNotification").removeClass().addClass(msg[0]);
+                        $("#courseNotification").html(msg[1]);
+                }
+        });
+
+}
+
+function addComment() {
+        $.ajax({
+                type: "POST",
+                url: "task_addcomment.php",
+                data: ({tid:$("#tid").val(), comment:encodeURIComponent($("#comment").val())}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#commentNotification").removeClass().addClass(msg[0]);
+                        $("#commentNotification").html(msg[1]);
+                        
+                        getComments();
+                }
+        });
+}
+
+function deleteComment(c) {
+        $.ajax({
+                type: "POST",
+                url: "task_deletecomment.php",
+                data: ({comment_id:c}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#commentNotification").removeClass().addClass(msg[0]);
+                        $("#commentNotification").html(msg[1]);
+                        
+                        getComments();
+                }
+        });
+}
+
+function getClassify(){
+                $.ajax({
+                type: "GET",
+                url: "task_classify.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#classifyList").html(html);
+                }
+        });
+}
+
+function getTutorial(){
+        $.ajax({
+                type: "POST",
+                url: "task_gettutorials.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#tutorialList").html(html);
+                }
+        });
+}
+
+function getQueries() {
+        $.ajax({
+                type: "POST",
+                url: "task_getqueries.php",
+                data: ({tid:$("#tid").val()}),
+                success: function(html) {
+                        $("#queryList").html(html);
+                }
+        });
+}
+
+function addQuery() {
+        $.ajax({
+                type: "POST",
+                url: "task_addquery.php",
+                data: ({tid:$("#tid").val(), contest_id:$("#contest_id").val(), query:encodeURIComponent($("#query").val())}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#queryNotification").removeClass().addClass(msg[0]);
+                        $("#queryNotification").html(msg[1]);
+                        
+                        getQueries();
+                }
+        });
+}
+
+function deleteQuery(q) {
+        $.ajax({
+                type: "POST",
+                url: "task_deletequery.php",
+                data: ({query_id:q}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#queryNotification").removeClass().addClass(msg[0]);
+                        $("#queryNotification").html(msg[1]);
+                        
+                        getQueries();
+                }
+        });
+}
+
+function addTag() {
+        $.ajax({
+                type: "POST",
+                url: "tag_add.php",
+                data: ({tid:$("#tid").val(), tags:$("#tagwords").val()}),
+                success: function(html) {
+                        var msg = html.split(";");
+                        $("#tagNotification").removeClass().addClass(msg[0]);
+                        $("#tagNotification").html(msg[1]);
+                        
+                        getClassify();
+                }
+        });
+}
+
+
+$(document).ready(function() {
+        getComments();
+        getQueries();
+        getClassify();
+        getTutorial();
+        //getCloud();
+});
+
+$(document).everyTime(60000, function(i) {
+        if ($("#tid").val() != "" && $("#tid").val() != null) {
+                $.ajax({
+                        type: "POST",
+                        url: "task_checkcontest.php",
+                        data: ({tid:$("#tid").val()}),
+                        success: function(html) {
+                                if (html == "0") {
+                                        $("#contest_submit").html("");
+                                }
+                        }
+                });
+                $.ajax({
+                        type: "POST",
+                        url: "task_checkcourse.php",
+                        data: ({tid:$("#tid").val()}),
+                        success: function(html) {
+                                if (html == "0") {
+                                        $("#course_submit").html("");
+                                }
+                        }
+                });
+        }
+}, 0);
+
+$('#loading_mask_loader')
+        .hide()  // hide it initially
+        .ajaxStart(function() {
+                $(this).show();
+        })
+        .ajaxStop(function() {
+                $(this).hide();
+        });
+        
+</script>
+</body>
+</html>
+</div> <!-- end outer -->
+
+</div> <!-- end container -->
+
+<!-- START NUS-Footer --> 
+<div id="nusfooter" class="nusbody">
+<div id="nusfooter_ml"><div id="nusfooter_mr">
+<div id="nusfooter_tc"><div id="nusfooter_tl"><div id="nusfooter_tr">
+<div id="nusfooter_bc"><div id="nusfooter_bl"><div id="nusfooter_br">
+<div class="inner"><div class="left"><p>&copy; Copyright 2009-2020 National University of Singapore. All Rights Reserved.</p>  
+<p class="nusfooterlinks">
+<a href="http://www.nus.edu.sg/terms.php">Terms of Use</a> |
+<a href="http://www.nus.edu.sg/policy.php">Privacy</a> |
+<a href="http://www.nus.edu.sg/nondiscrim.php">Non-discrimination</a></p> 
+</div>    
+<div class="right">
+<a href="https://mysoc.nus.edu.sg/">MySoC</a> |
+<a href="https://docs.comp.nus.edu.sg/cf/">Computing Facilities</a> |
+<a href="http://www.nus.edu.sg/search/">Search</a> |
+<a href="http://www.nus.edu.sg/campusmap/">Campus Map</a>
+<p>School of Computing, National University of Singapore</p>
+</div>    
+<div style="clear: both;"> </div>
+</div>
+</div></div></div>
+</div></div></div>
+</div></div>
+</div>
+<!-- END NUS-Footer --></body>
+</html>
