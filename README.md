@@ -14,7 +14,7 @@
     The following are links to each problem set:
   </p>
   <ol>
-    <li><a href="https://github.com/marcusleeeugene/CS2030-Discrete-Event-Simulator/blob/master/Project1.htm"> Project 1 Scope </a></li>
-    <li><a href="https://github.com/marcusleeeugene/CS2030-Discrete-Event-Simulator/blob/master/Project2.htm"> Project 2 Scope </a></li>
-    <li><a href="https://github.com/marcusleeeugene/CS2030-Discrete-Event-Simulator/blob/master/Project3.htm"> Project 3 Scope </a></li>
+    <li><a href=""> Project 1 </a></li>
+    <li><a href=""> Project 2 </a></li>
+    <li><a href=""> Project 3 </a></li>
   <ol
