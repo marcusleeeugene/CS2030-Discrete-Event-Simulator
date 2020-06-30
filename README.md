@@ -11,10 +11,12 @@
   </p>
   <p>
     Here, I learnt to write codes that are readable, reusable and open for future extensions. The project is splitted in 3 parts.
-    The following are links to each problem set:
+  </p>
+  <p>
+    The following are links to each problem set. Open the .html file with the browser for each project scope and intructions.
   </p>
   <ol>
-    <li><a href=""> Project 1 </a></li>
-    <li><a href=""> Project 2 </a></li>
-    <li><a href=""> Project 3 </a></li>
+    <li><a href="https://github.com/marcusleeeugene/CS2030-Discrete-Event-Simulator/tree/master/Project1"> Project 1 </a></li>
+    <li><a href="https://github.com/marcusleeeugene/CS2030-Discrete-Event-Simulator/tree/master/Project2"> Project 2 </a></li>
+    <li><a href="https://github.com/marcusleeeugene/CS2030-Discrete-Event-Simulator/tree/master/Project3"> Project 3 </a></li>
   <ol
