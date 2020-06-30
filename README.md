@@ -10,7 +10,7 @@
     and performance of a real-life process, facility or system. For this project, I am tasked to create a program to handle customers of a shop.
   </p>
   <p>
-    Here, I learnt to write codes that are readable, reusable and open for future extensions. The project is splitted in 3 parts.
+    Here, I learnt to write codes that are readable, reusable and designed for future extensions. The project is splitted in 3 parts.
   </p>
   <p>
     The following are links to each problem set. Open the .html file with the browser for each project scope and intructions.
